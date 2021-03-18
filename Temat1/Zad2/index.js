@@ -20,7 +20,7 @@ function filterPersons(persons, criteria) {
     return persons.filter(function (person) {
         var criteriaKeys = Object.keys(criteria);
         return criteriaKeys.every(function (fieldName) {
-            return person[fieldName] === criteriaKeys[fieldName];
+            return person[fieldName] === criteria[fieldName];
         });
     });
 }
@@ -39,5 +39,5 @@ admins.forEach(function (element) {
 var allUsers = __spreadArray(__spreadArray([], users), admins);
 allUsers.forEach(function (element) { logPerson(element); });
 var userOlderThan25 = allUsers.filter(function (user) { return user.age > 25; });
-var filtered = filterPersons(allUsers, { name: 'Adam' });
+var filtered = filterPersons(allUsers, { name: "Adam" });
 console.log(filtered);

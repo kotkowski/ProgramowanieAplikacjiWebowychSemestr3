@@ -28,7 +28,7 @@ interface Person {
         return persons.filter(person => {
             let criteriaKeys = Object.keys(criteria) as (keyof Person)[];
             return criteriaKeys.every((fieldName) => {
-                return person[fieldName] === criteriaKeys[fieldName];
+                return person[fieldName] === criteria[fieldName];
             }
         )})
     };
@@ -51,6 +51,6 @@ interface Person {
     allUsers.forEach(element=>{logPerson(element);});
 
     const userOlderThan25: Person[] = allUsers.filter(user=>user.age>25);
-    const filtered = filterPersons(allUsers, {name: 'Adam'});
+    const filtered = filterPersons(allUsers, {name: `Adam`});
     console.log(filtered);
 
